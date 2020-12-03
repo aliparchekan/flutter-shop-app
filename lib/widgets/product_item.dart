@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../screens/product_detail_screen.dart';
 import '../providers/product.dart';
 import '../providers/cart.dart';
+import '../providers/auth.dart';
 
 class ProductItem extends StatelessWidget {
   // final String id;
@@ -32,12 +33,12 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         footer: GridTileBar(
-          leading: Consumer<Product>(
-            builder: (_, product, __) => IconButton(
+          leading: Consumer2<Product, Auth>(
+            builder: (_, product, auth, __) => IconButton(
               icon: Icon(
                   product.isFavorite ? Icons.favorite : Icons.favorite_outline),
               onPressed: () {
-                product.toggleFavorite();
+                product.toggleFavorite(auth.token);
               },
               color: Theme.of(context).accentColor,
             ),
