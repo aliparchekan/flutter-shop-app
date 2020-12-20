@@ -14,6 +14,10 @@ class Auth with ChangeNotifier {
     return token != null;
   }
 
+  String get userId {
+    return _userId;
+  }
+
   void setToken(String tokenValue, String userId, String expiresIn) {
     _token = tokenValue;
     _userId = userId;
