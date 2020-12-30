@@ -51,15 +51,16 @@ class MyApp extends StatelessWidget {
               visualDensity: VisualDensity.adaptivePlatformDensity,
               fontFamily: 'Lato',
             ),
-            home: auth.isAuth
-                ? ProductsOverviewScreen()
-                : FutureBuilder(
-                    future: auth.tryAutoLogin(),
-                    builder: (ctx, snapshot) =>
-                        snapshot.connectionState == ConnectionState.waiting
-                            ? SplashScreen()
-                            : AuthScreen(),
-                  ),
+            // home: auth.isAuth
+            //     ? ProductsOverviewScreen()
+            //     : FutureBuilder(
+            //         future: auth.tryAutoLogin(),
+            //         builder: (ctx, snapshot) =>
+            //             snapshot.connectionState == ConnectionState.waiting
+            //                 ? SplashScreen()
+            //                 : AuthScreen(),
+            //       ),
+            home: auth.isAuth ? ProductsOverviewScreen() : AuthScreen(),
             routes: {
               ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
               CartScreen.routeName: (ctx) => CartScreen(),
